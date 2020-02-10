@@ -1,0 +1,118 @@
+.bar1{
+    display: block;
+    background: rgba(0,0,0,0.2);
+    position: relative;
+    font-size: 16px;
+    padding: 5px;
+    line-height: 16px;
+    border-radius: 30px
+}
+.bar2{
+    display: block;
+    background: rgba(0,0,0,0.2);
+    position: relative;
+    font-size: 16px;
+    padding: 5px;
+    line-height: 16px;
+   
+}
+.s1{
+    width: 50%;
+    height: 22px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background-color: hotpink;
+    background-size: 100%;
+    border-radius: 10px 0 0 10px; 
+animation: movingbar1 4s infinite linear ;
+    animation-direction: alternate;
+}
+ .s1::after{
+        content: "";
+        position: absolute;
+        top:0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-size: 100%;
+        background-image: linear-gradient(45deg, white 25%,rgba(0, 0, 0, 0) 25%,
+                                      rgba(0, 0, 0, 0) 50%,
+                                      #ffffff 50%,
+                                      #ffffff 75%,
+                                      rgba(0, 0, 0, 0) 75%,
+            rgba(0, 0, 0, 0));
+background-size: 30px 30px;
+     opacity: 0.3;
+     animation: movingbarafter1 1s infinite linear ;
+
+}
+        
+      
+.s2{
+  
+
+    height: 22px;
+    position: relative;
+    display: inline-block;
+    background-color: blue;
+    background-size: 100%;
+    animation: movingbar2 6s infinite ease ;
+      animation-direction: alternate;
+   
+     
+    }  
+.s2::before{
+    position: absolute;
+     right: 0;
+     bottom: 100%;
+     display: inline-block;
+     width: 0;
+     height: 0;
+     border: 10px solid transparent;
+     border-right-width: 0;
+     border-bottom-width: 0;
+     border-top-color: rgba(0, 0, 0, 1);
+     content: "";
+}
+.s2::after{
+     position: absolute;
+     right: 0;
+     bottom: calc(100% + 5px);
+     z-index: 1;
+     display: inline-block;
+     content: attr(data-label);
+     padding: 5px;
+     border-radius: 3px;
+     font-size: 20px;
+     background-color: rgba(0, 0, 0, 1);
+     color: white;
+    
+}
+@keyframes movingbar1{
+    0%{
+        width: 30%
+    }
+    100%{
+        width:  100%;
+        border-radius: 0 10px 10px 0;
+    }
+}
+@keyframes movingbar2{
+    0%{
+        width: 10%
+    }
+    100%{
+        width:  100%;
+
+    }
+}
+@keyframes movingbarafter1{
+    0%{
+        background-position: 0 100%;
+    }
+     100%{
+        background-position: 30px 100%;
+    }
+}
+
